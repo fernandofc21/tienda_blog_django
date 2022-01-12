@@ -1,0 +1,323 @@
+***Curso Django. Plantillas I. Vídeo 5
+
+¿Como se usan las Plantillas?
+1. Creacion de un objeto Template
+    plt = Template(doc_externo.read())
+
+2. Creación de Contexto
+        (datos adicionales para el Template, como: variables, funciones...)
+        ctx = Context()
+
+3. Renderizado del objeto Template
+    documento = plt.render(ctx)
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+
+
+***Curso Django. Plantillas III. Bucles y condicionales en plantillas. Vídeo 7
+
+Nomenclatura del púnto.
+Bucle for y condicionales :
+         
+            {% if lista %}
+                {% for nombre in lista %}  
+                    <li>{{ nombre }}</li>
+                {% endfor %}
+            {% else %}
+                <p>No existen elementos que mostrar.</p>
+            {% endif %}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+***Curso Django. Plantillas IV. Condicionales, filtros y cargadores de plantillas. Vídeo 8
+
+1.Usando Loader para cargar las plantillas:
+    importar la clase Loader
+        from django.template import loader 
+2.Configurar la ruta de las plantillas en el archivo "settings.py" del proyecto:
+
+    TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['D:/Atito/Programacion/Proyectos/ProyectoDjango/Proyecto1/Proyecto1/plantillas'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+3. #Usando LOADER el render requiere un diccionario en lugar de un contexto.
+    documento = plantilla.render({"name":p1.nombre, "last_name":p1.apellido, "lista":list})
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+***Curso Django. Plantillas V. Plantillas incrustadas. Vídeo 9
+    #USANDO SHORTCUTS
+        
+        return render(request, nombre de la platilla, contexto/diccionario)
+    
+    -Incrustar plantillas:
+        {% include "navbar.html" %}
+        Si está en una sub carpeta:
+            {% include "subcarpeta/navbar.html" %}
+
+    En "views.py" importar el modulo correspondiente:
+                from django.shortcuts import render
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+***Curso Django. Plantillas VI. Herencia de plantillas. Vídeo 10
+
+        -Etiquetas para el bloque principal:
+                    {% block title %} {% endblock %}
+                    {% block content %} {% endblock %}
+            Lo que esté dentro de las etiquetas aparecerá en las plantillas hijas.
+
+        -Etiqueta para las plantillas hijas:
+                    {% extends "main.html" %}
+                    {% block title %} Aquí va titulo de la platilla hija {% endblock %}
+                    {% block content %} Aqui el contenido de la plantilla hija {% endblock %}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+***Curso Django. BBDD II. Vídeo 12
+
+    - Creación de Proyecto:
+        django-admin startproject TiendaOnline
+    - Creación de Aplicación:
+        python manage.py startapp gestionPedidos
+    - Hacer migración:
+        python manage.py makemigrations 
+    - Migrar/ Crear las tablas
+        python manage.py sqlmigrate gestionPedidos 0001     ('0001' es el numero de la migración que se creo anteriormente)
+    - Crea las tablas en la base de datos (dnbrowser)
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+***Curso Django. BBDD III. Vídeo 13
+
+    - Manipulando la base de datos/modelos/tablas etc con el Shell de python
+        python manage.py shell
+    - Importando del modelo y creando una instancia:
+        from gestionPedidos.models import Articulos
+        art1 = Articulos(nombre='AK-47', seccion='Rifles de Asalto', precio=950)
+        art1.save()
+          otra manera:
+            art1 = Articulos.objects.create(nombre='AK-47', seccion='Rifles de Asalto', precio=950)
+    - Modificando:
+        art1.precio = 800
+        art1.save()
+    - Eliminando
+        art1 = Articulos.objects.get(id=6)
+        art1.delete()
+    - Filtrando por:
+        Articulos.objects.filter(seccion='Rifles de Asalto')
+
+    ****NOTA: Siempre hacer un "makemigrations" y luego el "migrate" luego de hacer cambios en el MODELO
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+***Curso Django. BBDD IV. PostgreSql. Vídeo 14
+
+    -CONFIGURANDO LA BASE DE DATOS A PGADMIN 3:
+                    DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+                    'NAME': 'tiendaonline',             <----- PGadmin transforma el nombre la de BD a minuscula                    
+                    'USER': 'postgres',
+                    'PASSWORD': 'pilsen478',
+                    'HOST': '127.0.0.1',
+                    'DATABASE_PORT':'5432',
+                }
+            }
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+***Curso Django. BBDD V. PostgreSql con Where. Vídeo 15
+
+        def __str__(self):
+        return 'El nombre es %s , la sección es %s y el precio es %s' %(self.nombre, self.seccion, self.precio)
+
+Python nos permite redefinir el método que se debe ejecutar. Esto se hace definiendo en la clase el método especial __str__
+
+En el ejemplo anterior si queremos que se muestre el nombre y apellido separados por coma cuando llamemos a la función print el código que debemos implementar es el siguiente:
+
+class Persona:
+    def __init__(self,nom,ape):
+        self.nombre=nom
+        self.apellido=ape
+
+    def __str__(self):
+        cadena=self.nombre+","+self.apellido
+        return cadena
+ 
+persona1=Persona("Jose","Rodriguez")
+print(persona1)
+
+
+Un método __str__(self) le dice a Python cómo mostrar la representación "string" de un objeto.
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+***Curso Django. Panel de Administración I. Vídeo 16
+
+    - CREANDO EL SUPER USUARIO PARA EL PANEL DE CONTROL:
+        >python manage.py createsuperuser
+        user: admin
+        password: 123456
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+***Curso Django. Panel de Administración II. Vídeo 17
+
+    - REGISTRANDO LOS MODELOS PARA EL PANEL
+       1.Importar el modelo:
+            from gestionPedidos.models import Clientes
+       2.Registrar el modelo:
+            admin.site.register(Clientes)
+
+
+    - MODIFICANDO LOS NOMBRES PARA MOSTRAR EN EL PANEL (COLUMNA): "verbose_name"
+        direccion = models.CharField(max_length=50, verbose_name="La Dirección")
+    
+    - ELIGIENDO LOS CAMPOS/COLUMNAS PARA QUE SE MUESTREN EN EL PANEL:
+        1. Se crea la clase con las columnas a mostrar:
+                class ClientesAdmin(admin.ModelAdmin):
+                    list_display=( "nombre", "direccion", "telefono" )
+        2. Se registra esa clase:
+                admin.site.register(Clientes, ClientesAdmin)
+    
+    - CREANDO CAMPOS DE BUSQUEDAS
+           En la clase de Admin creada: 
+            search_fields=("nombre", "telefono")
+
+
+    - AGREGANDO FILTROS 
+        1.Crear la clase del modelo correspondiente:
+            class ArticulosAdmin(admin.ModelAdmin):
+                list_filter=("seccion",)
+        2. Registrar la clase
+            admin.site.register(Articulos, ArticulosAdmin)
+        
+        3. filtro miga de pan:
+            date_hierarchy="fecha"
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+***Curso Django. FORMULARIOS I. Vídeo 21
+
+
+  -Realizando consultas con GET() y con FILTER():
+        Retrieving a single object with get()
+        filter() will always give you a QuerySet, even if only a single object matches the query - in this case, it will be a QuerySet containing a single element.
+
+        If you know there is only one object that matches your query, you can use the get() method on a Manager which returns the object directly:
+
+    -LARGO DE UN OBJETO:
+        {{articulos|length}}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+***Curso Django. Envío de mails. Vídeo 24
+
+    -Envío de mail desde Django:
+        Uso de libreria "core.mail"
+        
+        1.En el archivo settings.py:
+            EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        2.
+            subject=request.POST["asunto"]
+            message=request.POST["mensaje"] + " por: " + request.POST["email"]
+            email_from = settings.EMAIL_HOST_USER   #Email configurado en settings.py
+            recipient_list = ["fercovic10@gmail.com"] #Email donde quieres que lleguen los correos del formulario
+
+            send_mail(subject, message, email_from, recipient_list)
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+***Curso Django. API Forms Vídeo 25
+
+    Sirven para simplificar la creación de formularios
+
+    1. Se crea un archivo "forms.py" en la carpeta del proyecto, donde este "views.py"
+    2. Se importa la libreria:
+            from django import forms
+    3. Se crea la clase correspondiente al formulario a trabajar:
+            class FormularioContacto(forms.Form):
+                asunto=forms.CharField()
+                email=forms.EmailField()
+                mensaje=forms.CharField()
+    4. Se extrae los datos de la clase creada, y se instancia un objeto:
+            miFormulario = FormularioContacto(request.POST)
+    5. Se valida el formulario y se extrae los datos limpios:
+            if miFormulario.is_valid():
+            infForm=miFormulario.cleaned_data
+    6. Se manda los datos a la funcion send_mail()
+            send_mail(infForm['asunto'], infForm['mensaje'], infForm.get('email', ''), ['fercovic10@gmail.com'],)
+
+
+    -La funcion "is_valid()" valida el formulario.
+    -La funcion "cleaned_data" devuelve los datos limpios del formulario en un diccionario.
+        If your data does not validate, the cleaned_data dictionary contains only the valid fields.
+
+
+
+//////////////////////////////////////
+
+
+1. CREACIÓN DEL PROYECTO:
+    django-admin startproject ProyectoWeb  
+2. CREACIÓN DE LA APLICACIÓN: (modelos, vistas etc)
+    python django manage.py startapp ProyectoWebApp
+
+
+-CREANDO LAS VISTAS/CONTROLADORES PARA LAS DIFERENTES VISTAS
+    Importante importar las librerias necesarias, por ejemplo:
+        from django.shortcuts import render
+        from django.http.response import HttpResponse
+
+-CREANDO LAS URLS
+    Importar las views:
+        from ProyectoWebApp import views // o: from ProyectoWebApp.views import home, services, blog, contact, marketplace
