@@ -113,9 +113,21 @@ Bucle for y condicionales :
     - Migrar/ Crear las tablas
         python manage.py sqlmigrate gestionPedidos 0001     ('0001' es el numero de la migración que se creo anteriormente)
     - Crea las tablas en la base de datos (dnbrowser)
+        python manage.py migrate
 
 
+    -REGISTRAR la nueva app creada en el archivo "settings.py"
+        INSTALLED_APPS = 
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
 
+    Para chekear la Aplicación:
+        -python manage.py check "nombre_de_Aplicacion"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -191,6 +203,22 @@ print(persona1)
 
 Un método __str__(self) le dice a Python cómo mostrar la representación "string" de un objeto.
 
+**El método __init__ es un método especial de una clase en Python. El objetivo fundamental del método __init__ es inicializar los atributos del objeto que creamos.
+
+Básicamente el método __init__ remplaza al método inicializar que habíamos hecho en el concepto anterior.
+
+Las ventajas de implementar el método __init__ en lugar del método inicializar son:
+
+El método __init__ es el primer método que se ejecuta cuando se crea un objeto.
+El método __init__ se llama automáticamente. Es decir es imposible de olvidarse de llamarlo ya que se llamará automáticamente.
+Quien utiliza POO en Python (Programación Orientada a Objetos) conoce el objetivo de este método.
+Otras características del método __init__ son:
+
+Se ejecuta inmediatamente luego de crear un objeto.
+El método __init__ no puede retornar dato.
+el método __init__ puede recibir parámetros que se utilizan normalmente para inicializar atributos.
+El método __init__ es un método opcional, de todos modos es muy común declararlo.
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -229,7 +257,7 @@ Un método __str__(self) le dice a Python cómo mostrar la representación "stri
             search_fields=("nombre", "telefono")
 
 
-    - AGREGANDO FILTROS 
+    - AGREGANDO FILTROS (Panel lateral en el panel de Administración)
         1.Crear la clase del modelo correspondiente:
             class ArticulosAdmin(admin.ModelAdmin):
                 list_filter=("seccion",)
@@ -321,3 +349,28 @@ Un método __str__(self) le dice a Python cómo mostrar la representación "stri
 -CREANDO LAS URLS
     Importar las views:
         from ProyectoWebApp import views // o: from ProyectoWebApp.views import home, services, blog, contact, marketplace
+
+
+///////////////////////////////////////////
+
+Curso Django. Proyecto web completo III. Vídeo 28
+
+    Creando las rutas específicas para el proyecto "ProyectoWebApp"
+        -se crea el archivo "urls.py"
+        -se añaden los path normalmente.
+            from django.urls import path
+            from ProyectoWebApp.views import home, services, blog, contact, marketplace
+
+                urlpatterns = [
+                    path('inicio', home),
+                    path('servicios', services),
+                    path('tienda', marketplace),
+                    path('blog', blog),
+                    path('contacto/', contact),
+                ]
+
+        -en el archivo "urls.py" de "ProyectoWeb" se añade la instrución "include()" para conectar con el otro archivo "urls.py"
+            urlpatterns = [
+                path('admin/', admin.site.urls),
+                path('', include('ProyectoWebApp.urls')),
+            ]

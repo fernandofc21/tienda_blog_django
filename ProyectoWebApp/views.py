@@ -4,18 +4,16 @@ from django.http.response import HttpResponse
 # Create your views here.
 
 def home(request):
-    return HttpResponse('Inicio')
-
-
+    return render(request,"ProyectoWebApp/home.html")
 
 def services(request):
-    return HttpResponse('Servicios')
+    return render(request,"ProyectoWebApp/servicios.html")
 
 def marketplace(request):
-    return HttpResponse('Tienda')
+    return render(request,"ProyectoWebApp/tienda.html")
 
 def blog(request):
-    return HttpResponse('Servicios')
+    return render(request,"ProyectoWebApp/blog.html")
 
 def contact(request):
-    return render(request,"contacto.html")
+    return render(request,"ProyectoWebApp/contacto.html")
