@@ -374,3 +374,13 @@ Curso Django. Proyecto web completo III. Vídeo 28
                 path('admin/', admin.site.urls),
                 path('', include('ProyectoWebApp.urls')),
             ]
+
+//////////////////////////////////////////////
+
+Curso Django. Proyecto web completo IV. Vídeo 29
+
+    1. Para cargar los estilos css de la carpeta static:
+        Después del head:
+            {% load static %}
+        Para linkear los estilos, imagenes, scripts:
+            <link href="{% static 'ProyectoWebApp/css/gestion.css' %}" rel="stylesheet">
