@@ -402,3 +402,26 @@ class MyModel(models.Model):
 La clase Meta se puede utilizar para definir varias cosas sobre el modelo, como los permisos, el nombre de la base de datos, los nombres en singular y plural, abstracción, ordenación, etc. Agregar clases Meta a los modelos Django es completamente opcional.
 
 Esta clase también viene con muchas opciones que puede configurar. Las siguientes son algunas de las metaopciones de uso común; puedes explorar todas las opciones meta aquí
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo VIII. Vídeo 33
+
+    1.Registrando la app para el panel de CONTROL
+        -En el archivo admin.py de la app "servicios":
+            from django.contrib import admin
+            from .models import Servicio
+            # Register your models here.
+
+            admin.site.register(Servicio)
+
+    2.Para que se muestren los campos de solo lectura (created, updated)
+        -Se crea la clase:
+            class ServicioAdmin(admin.ModelAdmin):
+                readonly_fields=('created', 'updated')
+        -Se registra:
+                admin.site.register(Servicio, ServicioAdmin)
+
+
+    
