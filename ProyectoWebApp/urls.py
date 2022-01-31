@@ -1,10 +1,14 @@
 from django.urls import path
-from ProyectoWebApp.views import home, services, blog, contact, marketplace
+from ProyectoWebApp.views import home, blog, contact, marketplace
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('inicio', home, name="home"),
-    path('servicios', services, name="servicios"),
     path('tienda', marketplace, name="tienda"),
     path('blog', blog, name="blog"),
     path('contacto', contact, name="contacto"),
 ]
+
+urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

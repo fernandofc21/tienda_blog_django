@@ -424,4 +424,58 @@ Curso Django. Proyecto web completo VIII. Vídeo 33
                 admin.site.register(Servicio, ServicioAdmin)
 
 
-    
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo IX. Vídeo 34
+
+    Agregar y organizar las imagenes de la app 'servicios'
+        1. Agregar los siguientes parametros a 'settings.py'
+            MEDIA_URL = '/media/'
+            MEDIA_ROOT = BASE_DIR / 'media'
+        2. En el modelo, en el campo imagen, 'servicios' es la carpeta donde subira el archivo.
+            imagen = models.ImageField(upload_to='servicios')
+        3. Crear una carpeta 'media' a la misma altura de los proyectos, donde se subiran las imagenes.
+
+    Para que se muestren las imagenes en el panel de control:
+        1. En el archivo 'urls.py' importar:
+            from django.conf import settings
+            from django.conf.urls.static import static
+        2. En urlpatterns:
+            urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo IX. Vídeo 35
+
+    Mostrando todos los servicios en la página
+        def services(request):
+            servicios = Servicio.objects.all()
+        return render(request,"ProyectoWebApp/servicios.html", {"servicios":servicios})
+    En la plantilla 'servicios' mostrar los datos con un for:
+        
+        {% for servicio in servicios %}
+        <div>
+            <h2>{{servicio.titulo}}</h2>
+            <p>{{servicio.contenido}}</p>
+            <p><img src="{{servicio.imagen.url}}" alt="servicio"></p>
+        </div>
+        {% endfor %}
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XI. Vídeo 36
+
+    Organizando la app 'servicios'  
+        1.Se crea la carpeta templates para los htmls
+        2.Se crea el archivo 'urls.py' para reorganizar las rutas
+
+            en 'urls.py' de la app servicios
+            from django.urls import path
+            from servicios.views import services
+
+            urlpatterns = [
+                path('', services, name="servicios"),
+            ]
+
+        3.Se modifica el 'urls.py' principal:
+            path('servicios/', include('servicios.urls')),

@@ -1,13 +1,11 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
 
+
 # Create your views here.
 
 def home(request):
     return render(request,"ProyectoWebApp/home.html")
-
-def services(request):
-    return render(request,"ProyectoWebApp/servicios.html")
 
 def marketplace(request):
     return render(request,"ProyectoWebApp/tienda.html")
