@@ -479,3 +479,10 @@ Curso Django. Proyecto web completo XI. Vídeo 36
 
         3.Se modifica el 'urls.py' principal:
             path('servicios/', include('servicios.urls')),
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XII. Vídeo 37
+
+    Modificando la plantilla servicios.
