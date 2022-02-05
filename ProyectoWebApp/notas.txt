@@ -486,3 +486,32 @@ Curso Django. Proyecto web completo XI. Vídeo 36
 Curso Django. Proyecto web completo XII. Vídeo 37
 
     Modificando la plantilla servicios.
+
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XVI. Vídeo 41
+
+    Creando la plantilla categorias, donde se muestran las categorias segun el id
+
+    def categoria(request, categoria_id):
+    categoria = Categoria.objects.get(id=categoria_id)
+    post = Post.objects.filter(categoria=categoria)
+    return render(request, 'blog/categorias.html', {"categoria":categoria, "posts":post })
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XVIII. Vídeo 43
+
+    Creando la app de contacto
+
+    PASOS PARA LA CREACIÓN DE UNA NUEVA APP
+        1. python manage.py startapp contacto
+        2. configurar las urls ( registrar la nueva urls en el archivo principal):
+            path('contacto/', include('contacto.urls')),
+            
+        3. crear las carpetas para los templates
+        4. mover los templates
+        5. registrar la app en 'settings.py'
