@@ -515,3 +515,27 @@ Curso Django. Proyecto web completo XVIII. Vídeo 43
         3. crear las carpetas para los templates
         4. mover los templates
         5. registrar la app en 'settings.py'
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XX. Vídeo 45
+
+    Recuperando la información del formulario
+        -Si el metodo es POST , recuperamos la información en 'formulario_contacto'
+            if request.method=="POST":
+            formulario_contacto = FormularioContacto(data=request.POST)
+
+        -Si el formulario es valido, tiene todos sus campos etc, 
+            if formulario_contacto.is_valid():
+                nombre=request.POST.get("nombre")
+                email=request.POST.get("email")
+                contenido=request.POST.get("contenido")
+        
+        -Redirecionamos la pagina
+            return redirect("/contacto/?valido")
+        
+        *Si se cumple la condicion, quiere decir que el formulario se envio correctamente.
+         {% if "valido" in request.GET %} 
+            <p> Información enviada correctamente. </p>
+         {% endif %}

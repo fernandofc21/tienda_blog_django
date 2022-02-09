@@ -7,10 +7,19 @@
    {% block title %} Contacto {% endblock %}
    
    {% block content %} 
-   
+    
+    {% if "valido" in request.GET %} 
+        <p> Información enviada correctamente. </p>
+    {% endif %}
         <div class="container">
-            {{formulario}}
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{formulario}}
+                <input type="submit" value="Enviar">
+            </form>
         </div> 
+
+        <p>{{request.POST}}</p>
     
    {% endblock %}
    
