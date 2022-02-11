@@ -8,20 +8,22 @@
 
 
 <div class="container">
-    {% for post in posts %}
-        {% for categoria in post.categoria.all %}
-    <div class="card" style="width: 18rem;">
-        <img src="{{post.imagen.url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">{{post.titulo}}</h5>
-        <p class="card-text">{{post.contenido}}</p>
-        <p class="card-text">{{post.autor}}</p>
-        <p class="card-text">{{categoria.nombre}}</p>
-        <a href="#" class="btn btn-primary">Contratar</a>
+    <div class="row">
+        {% for post in posts %}
+            {% for categoria in post.categoria.all %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{post.imagen.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{post.titulo}}</h5>
+            <p class="card-text">{{post.contenido}}</p>
+            <p class="card-text">{{post.autor}}</p>
+            <p class="card-text">{{categoria.nombre}}</p>
+            <a href="#" class="btn btn-primary">Contratar</a>
+            </div>
         </div>
-    </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
+    </div>
 </div>
 
 

@@ -539,3 +539,56 @@ Curso Django. Proyecto web completo XX. Vídeo 45
          {% if "valido" in request.GET %} 
             <p> Información enviada correctamente. </p>
          {% endif %}
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XXVIII. Vídeo 53
+
+    Construyendo el carrito de compras:
+    -En el caso de no encontrar el id del producto en las claves del diccionario del carro, se agregan por 1ra vez con:
+        if (str(producto.id) not in self.carrito.keys()):
+        self.carrito[producto.id]={
+                "producto_id":producto.id,
+                "nombre":producto.nombre,
+                "precio":str(producto.precio),
+                "cantidad":1,
+                "imagen":producto.imagen.url
+            }
+    -Si existe productos en el carrito:
+        else: 
+         for key, value in self.carrito.items():
+                if key==str(producto.id):
+                    value["cantidad"]= value["cantidad"]+1
+
+               **Para cada clave/valor en el carrito, si encuentra el valor id en el carrito
+               se aumente el valor "value" de ese artículo, concretamente en "cantidad"    
+
+
+    **NOTA:
+        //La función: keys()
+
+            Retorna una lista de elementos, los cuales serán las claves de nuestro diccionario.
+
+            dic =  {‘a’ : 1, ’b’ : 2, ‘c’ : 3 , ‘d’ : 4}
+            keys= dic.keys()
+
+            keys→ [‘a’,’b’,’c’,’d’] 
+
+        //La función: values()
+
+            Retorna una lista de elementos, que serán los valores de nuestro diccionario.
+
+            dic =  {‘a’ : 1, ’b’ : 2, ‘c’ : 3 , ‘d’ : 4}
+            values= dic.values()
+
+            values→ [1,2,3,4] 
+
+         //La función: items()
+
+            Devuelve una lista de tuplas, cada tupla se compone de dos elementos: el primero será la clave y el segundo, su valor.
+
+            dic =   {‘a’ : 1, ’b’ : 2, ‘c’ : 3 , ‘d’ : 4}
+            items = dic.items()
+
+            items → [(‘a’,1),(‘b’,2),(‘c’,3),(‘d’,4)]
