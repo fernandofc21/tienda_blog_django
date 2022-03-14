@@ -20,7 +20,7 @@
 <body>
 
     <h1 class="site-heading text-center d-none d-lg-block">
-        <span class="site-heading-lower">Gestión de Pedidos</span>
+        <span class="site-heading-lower">Tech-House</span>
     </h1>
 
 
@@ -48,6 +48,10 @@
           <li class="nav-item {% if request.path|slice:':6' == '/blog/' %}active{% endif %} px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'blog' %}">Blog</a>
           </li>
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+          </form>
         </ul>
       </div>
     </div>
@@ -61,7 +65,7 @@
 
 
     <!-- Footer -->
-    <footer class="footer text-faded text-center py-5">
+    <!-- <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0">
 	        <a href="#" class="link">
@@ -90,7 +94,56 @@
 		</p>
         <p class="m-0 mbt1">&copy; Gestión de Pedidos 2020</p>
       </div>
-	</footer>
+	</footer> -->
+
+
+  <footer class="section footer-classic context-dark bg-image">
+    <div class="container">
+      <div class="row row-30">
+        <div class="col-md-4 col-xl-5">
+          <div class="pr-xl-4"><a class="brand" href="index.html"><img class="brand-logo-light" src="images/agency/logo-inverse-140x37.png" alt="" width="140" height="37" srcset="images/agency/logo-retina-inverse-280x74.png 2x"></a>
+            <p> Tech-House es una tienda online de informática y tecnología líder por precio y variedad que ofrece al cliente miles de productos y servicios informaticos. </p>
+            <!-- Rights-->
+            <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5>Contacto</h5>
+          <dl class="contact-list">
+            <dt>Dirección:</dt>
+            <dd>798 South Park Avenue, Jaipur, Raj</dd>
+          </dl>
+          <dl class="contact-list">
+            <dt>Email:</dt>
+            <dd><a href="mailto:#">techouse@gmail.com</a></dd>
+          </dl>
+          <dl class="contact-list">
+            <dt>Teléfono:</dt>
+            <dd><a href="#">0022889</a> <span>or</span> <a href="#">https://techouse.uy</a>
+            </dd>
+          </dl>
+        </div>
+        <div class="col-md-4 col-xl-3">
+          <h5>Links</h5>
+          <ul class="nav-list">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contacts</a></li>
+            <li><a href="#">Pricing</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters social-container">
+      <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+      <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+      <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+      <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+    </div>
+  </footer>
+
+
 
     <!-- Bootstrap -->
     <!-- <script src="{% static 'ProyectoWebApp/vendor/jquery/jquery.min.js' %}"></script> -->
