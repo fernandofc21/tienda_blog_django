@@ -3,13 +3,13 @@ from select import select
 
 class Carrito:
     def __init__(self, request):
-        self.request = request
+        '''self.request = request
         self.session = request.session
         carrito = self.session.get("carrito")
         if not carrito:
             carrito=self.session["carrito"]={}
-        else:
-            self.carrito = carrito
+       #else:'''
+        self.carrito = carrito
         
     def agregar(self, producto):
         if (str(producto.id) not in self.carrito.keys()):
@@ -24,8 +24,9 @@ class Carrito:
             for key, value in self.carrito.items():
                 if key==str(producto.id):
                     value["cantidad"]= value["cantidad"]+1
+                    value["precio"]= float(value["precio"]) + producto.precio
                     break
-        self.guardar_carrito(self)
+        self.guardar_carrito()
 
     def guardar_carrito(self):
         self.session["carrito"]=self.carrito
@@ -41,9 +42,11 @@ class Carrito:
         for key, value in self.carrito.items():
                 if key==str(producto.id):
                     value["cantidad"]= value["cantidad"]-1
+                    value["precio"]= float(value["precio"]) - producto.precio
                     if value["cantidad"]< 1:
-                        self.eliminar()
+                        self.eliminar(producto)
                     break
+        self.guardar_carrito()
 
     def limpiar_carro(self):
         self.session["carrito"]={}

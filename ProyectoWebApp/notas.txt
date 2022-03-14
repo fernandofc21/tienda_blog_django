@@ -592,3 +592,28 @@ Curso Django. Proyecto web completo XXVIII. Vídeo 53
             items = dic.items()
 
             items → [(‘a’,1),(‘b’,2),(‘c’,3),(‘d’,4)]
+
+
+////////////////////////////////////////////
+Curso Django. Proyecto web completo XX. Vídeo 55
+
+
+    Creando una variable global o Context Processor
+    1. Se crea un archivo "context_processor.py"
+        def importe_total_carrito(request):
+            total=0
+            if request.user.is_authenticated:
+                for key, value in request.session["carrito"].items():
+                    total=total+(float(value["precio"])*value["cantidad"])
+            return {"importe_total_carrito":total}
+
+
+NOTA: Error NotReverseMatch, es cuando no encuentra una url valida
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XXIV. Vídeo 59
+
+    Creando un sistema de autenticación
+    

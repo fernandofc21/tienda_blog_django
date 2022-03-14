@@ -10,13 +10,13 @@
 <div class="container">
 
     <div style="float:right;">
-        <p style="color: aliceblue;">Total: {{importe_total_carrito}}</p>
+        {% include "carrito/widget.html" %}
     </div>
 
     <div class="row">
         {% for producto in productos %}
            <div class="col-lg-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 100%;">
                     <img src="{{producto.imagen.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{producto.nombre}}</h5>
@@ -24,7 +24,7 @@
                         <p class="card-text">{{producto.categoria}}</p>
                     </div>
                     <div class="card-footer text-center">
-                        <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                        <a href="{% url 'carrito:agregar' producto.id %}" class="btn btn-primary">Añadir al carrito</a>
                     </div>
                 </div>
             </div> 
