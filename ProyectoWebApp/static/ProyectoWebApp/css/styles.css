@@ -5,6 +5,9 @@ footer {
   background-color: #2d3246;
   color: white; }
 
+.row-30 {
+  padding-top: 20px; }
+
 .social-container .col {
   border: 1px solid rgba(255, 255, 255, 0.1); }
 
@@ -12,16 +15,19 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   text-transform: uppercase;
+  padding: 23px;
+  font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: rgba(255, 255, 255, 0.5); }
 
+.nav-list li {
+  padding-top: 5px;
+  padding-bottom: 5px; }
 
 .nav-list li a:hover:before {
-    margin-left: 0;
-    opacity: 1;
-    visibility: visible;
-}
+  margin-left: 0;
+  opacity: 1;
+  visibility: visible; }
 
 .nav-list li a:before {
   content: "\f14f";
@@ -33,5 +39,13 @@ footer {
   margin-right: 7px;
   opacity: 0;
   visibility: hidden;
-  transition: .22s ease;
-}
+  transition: .22s ease; }
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 25px; }
+
+.carousel-inner {
+  height: 500px; }
