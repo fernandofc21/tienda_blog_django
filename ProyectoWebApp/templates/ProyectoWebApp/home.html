@@ -59,19 +59,72 @@
 
   
     <!-- Message -->
-    <section class="page-section cta">
+    <section class="page-section producto_oferta">
       <div class="container">
         <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-upper">¡Oferta de la semana!</span>
-              </h2>
-              <p class="mb-0">Te traemos las mejores ofertas en nuestros mejores productos!</p>
+          <div class="col-lg-6 producto_oferta_img">
+            <div class="card mb-3 degradado_card" style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="{% static 'ProyectoWebApp/img/corei5.jpg' %}" class="card-img" alt="producto oferta">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Procesador Intel Core i5</h5>
+                    <p class="card-text">El Core i5 de décima generación integra Inteligencia Artificial y Deep Learning que permite al usuario hacer edición de video y fotos sin muchos problemas.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="col-lg-6 producto_oferta_detalle">
+            <h2 class="section-heading mb-4" >
+              <span class="section-heading-upper">¡Oferta de la semana!</span>
+            </h2>
+              <p class="mb-3">En la puerta de tu casa en menos de 48 h con el envío normal. En menos de 24 h con el envío express.
           </div>
         </div>
       </div>
     </section>
+
+
+    <div class="container producto_destacado">
+      <div class="producto_destacado_titulo">
+        <h2 class="section-heading mb-4" >
+          <span class="section-heading-upper">Productos destacados</span>
+        </h2>
+      </div>
+      <div class="card-deck">
+          <div class="card animacionCard degradado_card">
+            <img src="{% static 'ProyectoWebApp/img/gtx1050.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Asus GTX 1050</h5>
+              <p class="card-text"></p>
+              <a href="#" class="btn btn-outline-light">Agregar al carrito</a>
+              <p class="card-text"> $219 </p>
+            </div>
+          </div>
+          <div class="card animacionCard degradado_card">
+            <img src="{% static 'ProyectoWebApp/img/gtx1650.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">GeForce GTX 1650</h5>
+              <p class="card-text"></p>
+              <a href="#" class="btn btn-outline-light">Agregar al carrito</a>
+              <p class="card-text"> $589 </p>
+            </div>
+          </div>
+          <div class="card animacionCard degradado_card">
+            <img src="{% static 'ProyectoWebApp/img/rtx2060.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Asus RTX 2060</h5>
+              <p class="card-text"></p>
+              <a href="#" class="btn btn-outline-light">Agregar al carrito</a>
+              <p class="card-text"> $749 </p>
+            </div>
+          </div>
+        </div>
+    </div>
+
 
     {% endblock %}

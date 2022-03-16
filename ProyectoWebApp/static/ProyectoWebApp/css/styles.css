@@ -49,3 +49,37 @@ footer {
 
 .carousel-inner {
   height: 500px; }
+
+.producto_oferta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FBDA61;
+  background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+  margin: 25px 0 25px 0; }
+
+.producto_oferta_img, .producto_oferta_detalle {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+
+.producto_oferta_detalle {
+  color: white; }
+
+.producto_destacado_titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.producto_destacado {
+  margin-bottom: 25px; }
+
+.card {
+  color: white; }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.degradado_card {
+  background-image: linear-gradient(to top, #2d3246 0%, #330867 100%); }
