@@ -97,3 +97,16 @@ footer {
 
 .degradado_card {
   background-image: linear-gradient(to top, #2d3246 0%, #330867 100%); }
+
+.container_servicios {
+  margin-bottom: 35px;
+  margin-top: 35px; }
+
+.card_tienda_margin {
+  margin-bottom: 25px; }
+
+.row_contacto {
+  justify-content: center; }
+
+.titulo_contacto {
+  margin-top: 20px; }

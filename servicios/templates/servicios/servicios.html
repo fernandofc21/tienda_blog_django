@@ -6,17 +6,21 @@
 {% block title %} Servicios {% endblock %}
 
 {% block content %} 
-    <div class="container">
-        {% for servicio in servicios %}
-        <div class="card" style="width: 18rem;">
-            <img src="{{servicio.imagen.url}}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title">{{servicio.titulo}}</h5>
-            <p class="card-text">{{servicio.contenido}}</p>
-            <a href="#" class="btn btn-primary">Contratar</a>
+    <div class="container container_servicios">
+        <div class="row">
+            {% for servicio in servicios %}
+            <div class="col-lg-4"> 
+                <div class="card" style="width: 18rem;">
+                    <img src="{{servicio.imagen.url}}" class="card-img-top" alt="...">
+                    <div class="card-body degradado_card">
+                        <h5 class="card-title">{{servicio.titulo}}</h5>
+                        <p class="card-text">{{servicio.contenido}}</p>
+                        <a href="#" class="btn btn-primary">Contratar</a>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 
 {% endblock %}
