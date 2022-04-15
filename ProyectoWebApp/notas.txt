@@ -577,7 +577,7 @@ Curso Django. Proyecto web completo XXVIII. Vídeo 53
 
         //La función: values()
 
-            Retorna una lista de elementos, que serán los valores de nuestro diccionario.
+            Retorna una lista de elementos, que serán los valores / Claves de nuestro diccionario.
 
             dic =  {‘a’ : 1, ’b’ : 2, ‘c’ : 3 , ‘d’ : 4}
             values= dic.values()
