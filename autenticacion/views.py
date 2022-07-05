@@ -1,6 +1,14 @@
 from django.shortcuts import render, redirect
+from django.views import View
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
-def autenticacion(request):
-    return render(request,"autenticacion/autenticacion.html")
+class VRegistro(View):
+
+    def get(self, request):
+        form = UserCreationForm()
+        return render(request, "registro/registro.html", {"form":form})
+
+    def post(self, request):
+        pass

@@ -1,6 +1,6 @@
 from argparse import Namespace
 from django.urls import path
-from autenticacion.views import autenticacion
+from .views import VRegistro
 
 from django.conf import settings
 
@@ -8,6 +8,6 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('', autenticacion, name="autenticacion"),
+    path('', VRegistro.as_view(), name="autenticacion"),
 ]
 

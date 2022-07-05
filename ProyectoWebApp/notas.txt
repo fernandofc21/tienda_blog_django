@@ -616,4 +616,11 @@ NOTA: Error NotReverseMatch, es cuando no encuentra una url valida
 Curso Django. Proyecto web completo XXIV. Vídeo 59
 
     Creando un sistema de autenticación
-    
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XXV. Vídeo 60
+
+    -Creamos el formulario de registro utilizando la clase UserCreationForm (importar de from django.contrib.auth.forms import UserCreationForm)
+
