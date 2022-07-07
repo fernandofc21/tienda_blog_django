@@ -95,6 +95,10 @@ footer {
 .container_marcas {
   margin-bottom: 35px; }
 
+.nombre_usuario {
+  text-align: right;
+  margin-right: 100px; }
+
 .degradado_card {
   background-image: linear-gradient(to top, #2d3246 0%, #330867 100%); }
 
@@ -110,3 +114,7 @@ footer {
 
 .titulo_contacto {
   margin-top: 20px; }
+
+.form_autenticacion {
+  display: flex;
+  justify-content: center; }

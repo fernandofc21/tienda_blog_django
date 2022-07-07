@@ -4,18 +4,23 @@
 
 {% block title %} Tienda {% endblock %}
 
+{% load crispy_forms_tags %}
+
 {% block content %} 
 
-<p>AUTENTICACIÓN</p>
 
 
-<form  method="post" action="">
-
-    {% csrf_token %}
-    {{form}}
-    <button type="submit" class="btn btn-success"> Regístrate </button>
-
-</form>
+<div class="container form_autenticacion"> 
+    <form  method="post" action="">
+        
+            <h2 class="section-heading mb-4 titulo_autenticacion" >
+                <span class="section-heading-upper">Autenticación</span>
+            </h2>
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit" class="btn btn-success"> Registrarse </button>
+    </form>
+</div>
 
 
 {% endblock %}
