@@ -624,3 +624,18 @@ Curso Django. Proyecto web completo XXV. Vídeo 60
 
     -Creamos el formulario de registro utilizando la clase UserCreationForm (importar de from django.contrib.auth.forms import UserCreationForm)
 
+////////////////////////////////////////////
+
+Curso Django. Proyecto web completo XXVI. Vídeo 61
+
+    En este vídeo le damos formato al formulario utilizando bootstrap y el paquete "crispy-forms" 
+
+
+////////////////////////////////////////////
+
+Curso Django: Proyecto completo XXIX. Creando login. Vídeo 64
+
+-crear el sistema de login con Django, con la clase AuthenticationForm()
+
+    -Se exporta de: from django.contrib.auth.forms
+    -Creamos la plantilla para el login.html

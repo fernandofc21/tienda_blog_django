@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Resgistro {% endblock %}
+{% block title %} Login {% endblock %}
 
 {% load crispy_forms_tags %}
 
@@ -14,11 +14,11 @@
     <form  method="post" action="">
         
             <h2 class="section-heading mb-4 titulo_autenticacion" >
-                <span class="section-heading-upper">Autenticación</span>
+                <span class="section-heading-upper">Inicia Sesión</span>
             </h2>
             {% csrf_token %}
             {{form|crispy}}
-            <button type="submit" class="btn btn-success"> Registrarse </button>
+            <button type="submit" class="btn btn-success"> Iniciar Sesión </button>
     </form>
 </div>
 
