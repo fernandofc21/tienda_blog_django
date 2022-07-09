@@ -12,11 +12,22 @@
 
 <div class="container form_autenticacion"> 
     <form  method="post" action="">
-        
+            {% csrf_token %}
             <h2 class="section-heading mb-4 titulo_autenticacion" >
                 <span class="section-heading-upper">Inicia Sesión</span>
             </h2>
-            {% csrf_token %}
+            
+            {% if messages %}
+
+            {% for mensaje in messages %}
+
+            <span class="alert alert-{{mensaje.tags}}">{{mensaje}}</span>
+            
+
+            {% endfor %}
+
+            {% endif %}
+            </br></br>
             {{form|crispy}}
             <button type="submit" class="btn btn-success"> Iniciar Sesión </button>
     </form>

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+from django.contrib.messages import constants as mensaje_error
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -147,3 +147,12 @@ EMAIL_HOST_PASSWORD = ""
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+MESSAGE_TAGS={
+    mensaje_error.DEBUG: 'debug',
+    mensaje_error.INFO: 'info',
+    mensaje_error.SUCCESS: 'success',
+    mensaje_error.WARNING: 'warning',
+    mensaje_error.ERROR: 'danger',
+
+}

@@ -47,9 +47,11 @@ def loguear(request):
                 login(request, usuario)
                 return redirect('home')
             else:
-                messages.error(request, "Usuario no válido")
+                for msg in form.error_messages:
+                    messages.error(request, form.error_messages[msg])
         else:
-            messages.error(request, "información incorrecta")
+            for msg in form.error_messages:
+                messages.error(request, form.error_messages[msg])
 
 
     form = AuthenticationForm()
