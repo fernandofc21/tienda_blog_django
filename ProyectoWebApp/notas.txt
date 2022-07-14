@@ -639,3 +639,12 @@ Curso Django: Proyecto completo XXIX. Creando login. Vídeo 64
 
     -Se exporta de: from django.contrib.auth.forms
     -Creamos la plantilla para el login.html
+
+
+////////////////////////////////////////////
+
+Curso Django. Proyecto completo XXXII. Creando app Pedidos. Vídeo 67
+
+from django.contrib.auth import get_user_model 
+    -Devuelve el usuario actual, usuario que está logueado
+    

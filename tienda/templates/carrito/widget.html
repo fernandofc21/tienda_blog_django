@@ -45,7 +45,16 @@
                 Total: $ {{importe_total_carrito}}
             </td>
         </tr>
+        {% if request.session.carrito.items %}
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <a href="../pedidos" class="btn btn-success"> Comprar </a>
+            </td>
+        </tr>
+        {% endif %}
+
     </tfoot>
+
 
 
 </table>
